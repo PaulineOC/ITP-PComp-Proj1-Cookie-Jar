@@ -6,8 +6,8 @@ int FSRPin = A0;
 //Digital
 int switchPin = 7;
 int LEDPin = 8;
-
 int speakerPin = 9;
+
 // extra safety net boolean to make sure the speaker doesn't play incorrectly and doesn't break with noTone()
 boolean speakerIsPlaying; 
 
@@ -22,8 +22,7 @@ int period = 10000; // in milliseconds --> 10 seconds
 int melody[] = {
 NOTE_A3, NOTE_A3,NOTE_A3, NOTE_F3, NOTE_C4, NOTE_A3, NOTE_F3, NOTE_C4, NOTE_A3, NOTE_E4,NOTE_E4,NOTE_E4,NOTE_F4,NOTE_C4, NOTE_GS3,NOTE_F3,NOTE_C4,NOTE_A3,
 };
- 
-// note durations: 4 = quarter note, 8 = eighth note, etc.:
+
 int noteDurations[] = {4,4,4,8,8,4,8,8,2,4,4,4,8,8,4,8,8,2};
 
 // Stages
@@ -52,6 +51,7 @@ void loop() {
     Serial.println(analogRead(FSRPin));
     //Serial.println(digitalRead(switchPin));
 
+    // If outside the interval, reset the open count
     if(currentMillis - startMillis > period){
        openCount = 0;
     }
