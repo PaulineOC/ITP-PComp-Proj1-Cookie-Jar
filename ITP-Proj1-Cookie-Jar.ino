@@ -8,7 +8,8 @@ int switchPin = 7;
 int LEDPin = 8;
 
 int speakerPin = 9;
-boolean speakerIsPlaying;
+// extra safety net boolean to make sure the speaker doesn't play incorrectly and doesn't break with noTone()
+boolean speakerIsPlaying; 
 
 //Timer:
 unsigned long startMillis;
@@ -91,15 +92,3 @@ void playTune(){
     delay(noteDuration +50);
   }
 }
-
-
-//no tone -- may crash if wasn't playing previously 
-//give it a duration to stop it
-// might need an SD card --> arduino mp3 --> playback mp3
-//FSR to scale to see intentions of the cookie --> report with cardboard 
-// give a number correlating to the weight 
-// punish bingers
-//arduino and measuring time? 
-//millis --> ask for millis 0 then will be 1000
-// divide into or three contacts so the lid is more forgiving --> 
-//scale / pressure gauges?--cardboard all the bottom of the jar is sending hte pressure downwards
