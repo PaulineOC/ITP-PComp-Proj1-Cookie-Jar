@@ -83,9 +83,6 @@ void loop() {
 void playTune(){
   speakerIsPlaying = true;
   for (int thisNote = 0; thisNote < 18; thisNote++) {
-    // to calculate the note duration, take one second
-    // divided by the note type.
-    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
     int noteDuration = 1000/noteDurations[thisNote];
     tone(speakerPin, melody[thisNote],noteDuration);
     //pause for the note's duration plus 30 ms:
